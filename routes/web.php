@@ -11,11 +11,11 @@ Route::get('/dashboard', function () {
    switch (auth()->user()->user_type) {
     case 'admin':
       return redirect()->route('admin.dashboard');
-   
+
     case 'secretary':
         return redirect()->route('secretary.dashboard');
     case 'patient':
-        dd('patient');
+        return redirect()->route('patient.dashboard');
         break;  // Add more cases as per your user_type column in users table.
     default:
         # code...
@@ -58,7 +58,19 @@ Route::prefix('secretary')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/category', function () {
         return view('secretary.category');
     })->name('secretary.category');
-   
+
+});
+
+Route::prefix('patient')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('patient.dashboard');
+    })->name('patient.dashboard');
+
+    Route::get('/services', function () {
+        return view('patient.services');
+    })->name('patient.services');
+
+
 });
 
 Route::middleware('auth')->group(function () {

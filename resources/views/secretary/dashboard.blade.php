@@ -1,6 +1,6 @@
 @section('title', 'Dashboard')
 <x-admin-layout>
     <div>
-        sdsdsd
+        <livewire:secretary.dashboard />
     </div>
 </x-admin-layout>
