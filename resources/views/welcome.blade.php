@@ -11,9 +11,23 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        swiper-container {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    @filamentStyles
+    @vite('resources/css/app.css')
 </head>
 
 <body class="font-sans antialiased">
@@ -75,10 +89,10 @@
                                     class="flex flex-col items-start space-x-3 justify-end w-full pt-4 md:items-center md:w-1/3 md:flex-row md:py-0">
 
                                     <a href="{{ route('login') }}"
-                                        class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-gray-800">Log
+                                        class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 ">Log
                                         In</a>
                                     <a href="#_"
-                                        class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-gray-800">Sign
+                                        class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 ">Sign
                                         Up</a>
                                 </div>
                             </div>
@@ -139,8 +153,9 @@
             <div
                 class="mx-auto grid mt-10 grid-cols-4 items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:-mx-6 lg:grid-cols-5">
                 <img class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/1.svg" alt="#_"
-                    width="158" height="48" /><img class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain"
-                    src="/brands/2.svg" alt="#_" width="158" height="48" /><img
+                    width="158" height="48" /><img
+                    class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/2.svg"
+                    alt="#_" width="158" height="48" /><img
                     class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/3.svg"
                     alt="#_" width="158" height="48" /><img
                     class="col-span-2 sm:col-start-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/4.svg"
@@ -155,160 +170,191 @@
     <!-- Testimonials section displaying customer feedback -->
 
     <!-- Pricing section with available plans and details -->
-    <section class="bg-white relative" x-data="{ duration: 'monthly' }">
+    <section class="bg-white bg-opacity-90 mb-10 relative" x-data="{ duration: 'monthly' }">
         <div class="px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-screen-xl relative">
             <div class="max-w-xl text-center mx-auto">
-                <span class="text-accent-600 uppercase font-mono font-medium tracking-tight text-xs">
-                    Tagline
-                </span>
+
                 <h1 class="text-4xl font-semibold tracking-tight text-base-900 lg:text-balance mt-4">
-                    Equip your business with world class software
+                    About Us
+                </h1>
+                <p class="text-base font-medium text-base-500 mt-4 lg:text-balance">
+                    The most well-known type of oral surgery is tooth extraction.
+                </p>
+
+            </div>
+            <section class="px-2 py-32 b md:px-0">
+                <div class="space-y-40">
+                    <div class="container items-center max-w-7xl  mx-auto xl:px-5">
+                        <div class="flex space-x-10">
+                            <div class="w-full md:w-1/2">
+                                <div class="w-full h-96 overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+                                    data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                                    <img src="{{ asset('images/bg1.jpg') }}"
+                                        class="transition-transform duration-300 shadow-xl ease-in-out transform hover:scale-110 h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 md:px-3">
+                                <div
+                                    class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                                    <h1
+                                        class="text-4xl font-extrabold tracking-tight text-main sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                        GC DENTAL
+                                    </h1>
+                                    <p class="mx-auto text-gray-500 sm:max-w-md text-justify  md:max-w-3xl">This
+                                        branch of dentistry focuses on resolving problems or injuries to the mouth,
+                                        teeth,
+                                        and jaw. Oral surgery is frequently used to remove damaged teeth and wisdom
+                                        teeth,
+                                        as well as to prepare the mouth for dentures and to treat jaw abnormalities.
+                                        When
+                                        complications arise during routine tooth extraction, surgical extraction is
+                                        required. In such circumstances, the dentist would have to administer a general
+                                        anesthetic to the patient. There are two types of surgical extractions that are
+                                        frequently used.</p>
+                                    <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                                        <a href="#_"
+                                            class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-main rounded-md sm:mb-0 hover:bg-gray-700 sm:w-auto"
+                                            data-primary="indigo-600" data-rounded="rounded-md">
+                                            Contact Us
+
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="container items-center max-w-7xl  mx-auto xl:px-5">
+                        <div class="flex space-x-10">
+                            <div class="w-full md:w-1/2 md:px-3">
+                                <div
+                                    class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                                    <h1
+                                        class="text-4xl font-extrabold tracking-tight text-main sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                        VISION
+                                    </h1>
+                                    <p class="mx-auto text-gray-500 sm:max-w-md text-justify  md:max-w-3xl">This
+                                        branch of dentistry focuses on resolving problems or injuries to the mouth,
+                                        teeth,
+                                        and jaw. Oral surgery is frequently used to remove damaged teeth and wisdom
+                                        teeth,
+                                        as well as to prepare the mouth for dentures and to treat jaw abnormalities.
+                                        When
+                                        complications arise during routine tooth extraction, surgical extraction is
+                                        required. In such circumstances, the dentist would have to administer a general
+                                        anesthetic to the patient. There are two types of surgical extractions that are
+                                        frequently used.</p>
+                                    <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                                        <a href="#_"
+                                            class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-main rounded-md sm:mb-0 hover:bg-gray-700 sm:w-auto"
+                                            data-primary="indigo-600" data-rounded="rounded-md">
+                                            Read More
+
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <div class="w-full h-96 overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+                                    data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                                    <img src="{{ asset('images/bg1.jpg') }}"
+                                        class="transition-transform duration-300 shadow-xl ease-in-out transform hover:scale-110 h-full object-cover">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="container items-center max-w-7xl  mx-auto xl:px-5">
+                        <div class="flex space-x-10">
+                            <div class="w-full md:w-1/2">
+                                <div class="w-full h-96 overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+                                    data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                                    <img src="{{ asset('images/bg1.jpg') }}"
+                                        class="transition-transform duration-300 shadow-xl ease-in-out transform hover:scale-110 h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 md:px-3">
+                                <div
+                                    class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                                    <h1
+                                        class="text-4xl font-extrabold tracking-tight text-main sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                        MISSION
+                                    </h1>
+                                    <p class="mx-auto text-gray-500 sm:max-w-md text-justify  md:max-w-3xl">This
+                                        branch of dentistry focuses on resolving problems or injuries to the mouth,
+                                        teeth,
+                                        and jaw. Oral surgery is frequently used to remove damaged teeth and wisdom
+                                        teeth,
+                                        as well as to prepare the mouth for dentures and to treat jaw abnormalities.
+                                        When
+                                        complications arise during routine tooth extraction, surgical extraction is
+                                        required. In such circumstances, the dentist would have to administer a general
+                                        anesthetic to the patient. There are two types of surgical extractions that are
+                                        frequently used.</p>
+                                    <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                                        <a href="#_"
+                                            class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-main rounded-md sm:mb-0 hover:bg-gray-700 sm:w-auto"
+                                            data-primary="indigo-600" data-rounded="rounded-md">
+                                            Read More
+
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <section class="bg-white bg-opacity-90 relative" x-data="{ duration: 'monthly' }">
+        <div class="px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-screen-xl relative">
+            <div class="max-w-xl text-center mx-auto">
+
+                <h1 class="text-4xl font-semibold tracking-tight text-base-900 lg:text-balance mt-4">
+                    Our Services
                 </h1>
                 <p class="text-base font-medium text-base-500 mt-4 lg:text-balance">
                     Choose a plan that works the best for you and your team. Start small,
                     upgrade when you need to.
                 </p>
-                <div aria-labelledby="pricing-toggle"
-                    class="w-full relative mt-8 ring-1 ring-base-200 ring-offset-2 bg-white overflow-hidden justify-center gap-4 mx-auto lg:mx-0 inline-flex p-1 rounded-md max-w-52 shadow z-0">
-                    <!-- Monthly Pricing Button: Sets 'duration' to 'monthly' when clicked -->
-                    <!-- Sliding background -->
-                    <div class="absolute inset-0 bg-base-50 rounded-md transition-transform duration-200 ease-in-out"
-                        :class="duration === 'monthly' ? 'w-1/2 translate-x-0' : 'w-1/2 translate-x-full'"></div>
-                    <!-- Monthly Pricing Button -->
-                    <button id="monthly-pricing-button"
-                        class="relative flex items-center justify-center w-full px-2 h-6 text-xs font-medium focus:outline-none transition-colors duration-300 z-10"
-                        :class="duration === 'monthly' ? 'text-accent-600' : 'text-base-500 hover:text-accent-500'"
-                        @click="duration = 'monthly'" type="button" :aria-pressed="duration === 'monthly'">
-                        Monthly
-                    </button>
-                    <!-- Annual Pricing Button -->
-                    <button id="annual-pricing-button"
-                        class="relative flex items-center justify-center w-full px-2 h-6 text-xs font-medium focus:outline-none transition-colors duration-300 z-10"
-                        :class="duration === 'annual' ? 'text-accent-600' : 'text-base-500 hover:text-accent-500'"
-                        @click="duration = 'annual'" type="button" :aria-pressed="duration === 'annual'">
-                        Annual
-                    </button>
-                </div>
+
             </div>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-12 mx-auto">
-                <!-- Tier one -->
-                <div class="flex flex-col h-full rounded-3xl p-1 p-1 p-1 rounded-3xl bg-base-50">
-                    <div>
-                        <div class="flex flex-col gap-4 p-8 bg-white rounded-[1.3rem] h-full rounded-3xl shadow">
-                            <div class="flex items-start justify-between w-full">
-                                <div>
-                                    <h3 class="tracking-tight text-2xl font-medium text-base-900 text-base-900">
-                                        Core
-                                    </h3>
-                                    <p class="text-sm font-normal text-base-500 text-base-900">
-                                        For individuals
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="text-base font-medium text-base-500 text-base-900">
-                                This subscription tier caters to individuals and hobbyists seeking
-                                fundamental features.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p
-                            class="font-semibold flex lg:text-3xl items-baseline text-2xl tracking-tighter text-base-900">
-                            <span data-monthly="$29.00" data-annual="$19.00" x-text="$el.dataset[duration]"></span>
-                            <span class="text-sm font-normal font-sans tracking-normal text-base-500">
-                                <span x-show="duration === 'monthly'">/month</span>
-                                <span x-show="duration === 'annual'" style="display: none">/annually</span>
-                            </span>
-                        </p>
-                        <div class="w-full mt-4">
-                            <button
-                                class="flex items-center justify-center transition-all duration-200 focus:ring-2 transition-shadow focus:outline-none text-base-500 bg-white hover:text-accent-500 ring-1 ring-base-200 focus:ring-accent-500 h-9 px-4 py-2 text-sm font-medium rounded-md w-full">
-                                Get Started
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tier two -->
-                <div class="flex flex-col h-full rounded-3xl p-1 p-1 p-1 rounded-3xl bg-base-950 shadow">
-                    <div>
-                        <div class="flex flex-col gap-4 p-8 bg-base-900 rounded-[1.3rem] h-full rounded-3xl shadow">
-                            <div class="flex items-start justify-between w-full">
-                                <div>
-                                    <h3 class="tracking-tight text-2xl font-medium text-base-900 text-white">
-                                        Momentum
-                                    </h3>
-                                    <p class="text-sm font-normal text-base-500 text-white">
-                                        For startups
-                                    </p>
-                                </div>
-                                <span
-                                    class="rounded-full inline-flex items-center font-medium relative text-base-700 bg-base-50 px-2.5 py-1 text-xs">
-                                    Popular
-                                </span>
-                            </div>
-                            <p class="text-base font-medium text-base-500 text-white">
-                                Tailored for expanding businesses, this tier offers advanced tools
-                                and analytics.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="font-semibold flex lg:text-3xl items-baseline text-2xl tracking-tighter text-white">
-                            <span data-monthly="$49.00" data-annual="$39.00" x-text="$el.dataset[duration]"></span>
-                            <span class="text-sm font-normal font-sans tracking-normal text-white/50">
-                                <span x-show="duration === 'monthly'">/month</span>
-                                <span x-show="duration === 'annual'" style="display: none">/annually</span>
-                            </span>
-                        </p>
-                        <div class="w-full mt-4">
-                            <button
-                                class="flex items-center justify-center transition-all duration-200 focus:ring-2 transition-shadow focus:outline-none text-base-500 bg-white hover:text-accent-500 ring-1 ring-base-200 focus:ring-accent-500 h-9 px-4 py-2 text-sm font-medium rounded-md w-full">
-                                Get Started
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tier three -->
-                <div class="flex flex-col h-full rounded-3xl p-1 p-1 p-1 rounded-3xl bg-accent-700 shadow">
-                    <div>
-                        <div class="flex flex-col gap-4 p-8 bg-white/10 rounded-[1.3rem] h-full rounded-3xl shadow">
-                            <div class="flex items-start justify-between w-full">
-                                <div>
-                                    <h3 class="tracking-tight text-2xl font-medium text-base-900 text-white">
-                                        Growth
-                                    </h3>
-                                    <p class="text-sm font-normal text-base-500 text-white">
-                                        For corporates
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="text-base font-medium text-base-500 text-white">
-                                Designed for established businesses, providing comprehensive
-                                tools.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="font-semibold flex lg:text-3xl items-baseline text-2xl tracking-tighter text-white">
-                            <span data-monthly="$99.00" data-annual="$79.00" x-text="$el.dataset[duration]"></span>
-                            <span class="text-sm font-normal font-sans tracking-normal text-accent-100">
-                                <span x-show="duration === 'monthly'">/month</span>
-                                <span x-show="duration === 'annual'" style="display: none">/annually</span>
-                            </span>
-                        </p>
-                        <div class="w-full mt-4">
-                            <button
-                                class="flex items-center justify-center transition-all duration-200 focus:ring-2 transition-shadow focus:outline-none text-base-500 bg-white hover:text-accent-500 ring-1 ring-base-200 focus:ring-accent-500 h-9 px-4 py-2 text-sm font-medium rounded-md w-full">
-                                Get Started
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <livewire:home-services />
         </div>
     </section>
     <!-- Frequently Asked Questions section -->
+    <section class="relative opacity-0">
+        <div class="px-8 py-10 mx-auto md:px-12 lg:px-24 max-w-7xl relative">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
 
+                <div class="lg:col-span-2">
+                    <img class="object-cover h-full border shadow rounded-2xl" src="/images/dashboardLight.svg"
+                        alt="#_" />
+                </div>
+            </div>
+            <div
+                class="mx-auto grid mt-10 grid-cols-4 items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:-mx-6 lg:grid-cols-5">
+                <img class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/1.svg"
+                    alt="#_" width="158" height="48" /><img
+                    class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/2.svg"
+                    alt="#_" width="158" height="48" /><img
+                    class="col-span-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/3.svg"
+                    alt="#_" width="158" height="48" /><img
+                    class="col-span-2 sm:col-start-2 lg:col-span-1 max-h-12 w-full object-contain" src="/brands/4.svg"
+                    alt="#_" width="158" height="48" /><img
+                    class="col-span-2 col-start-2 sm:col-start-auto lg:col-span-1 max-h-12 w-full object-contain"
+                    src="/brands/5.svg" alt="#_" width="158" height="48" />
+            </div>
+        </div>
+    </section>
     <!-- Footer section with links, contact info, and social media -->
     <section class="relative bg-main">
         <div class="px-8 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl relative">
@@ -500,7 +546,9 @@
             </div>
         </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    @filamentScripts
+    @vite('resources/js/app.js')
 </body>
 
 </html>

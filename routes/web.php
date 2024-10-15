@@ -8,8 +8,58 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+   switch (auth()->user()->user_type) {
+    case 'admin':
+      return redirect()->route('admin.dashboard');
+   
+    case 'secretary':
+        return redirect()->route('secretary.dashboard');
+    case 'patient':
+        dd('patient');
+        break;  // Add more cases as per your user_type column in users table.
+    default:
+        # code...
+        break;
+   }
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('administrator')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+    Route::get('/doctors', function () {
+        return view('admin.doctors');
+    })->name('admin.doctors');
+    Route::get('/services', function () {
+        return view('admin.services');
+    })->name('admin.services');
+    Route::get('/users', function () {
+        return view('admin.users');
+    })->name('admin.users');
+    Route::get('/category', function () {
+        return view('admin.category');
+    })->name('admin.category');
+});
+
+
+Route::prefix('secretary')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('secretary.dashboard');
+    })->name('secretary.dashboard');
+    Route::get('/doctors', function () {
+        return view('secretary.doctors');
+    })->name('secretary.doctors');
+    Route::get('/services', function () {
+        return view('secretary.services');
+    })->name('secretary.services');
+    Route::get('/users', function () {
+        return view('secretary.users');
+    })->name('secretary.users');
+    Route::get('/category', function () {
+        return view('secretary.category');
+    })->name('secretary.category');
+   
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
