@@ -17,12 +17,23 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'user_type',
-    ];
+    protected $guarded = [];
+    public static function generatePatientId()
+    {
+        // Get the last patient ID from the database
+        $lastPatient = self::orderBy('id', 'desc')->first();
+
+        // Generate a new patient ID
+        if ($lastPatient) {
+            $lastId = (int) substr($lastPatient->patient_id, 1); // Assuming the ID is like "001"
+            $newId = str_pad($lastId + 1, 3, '0', STR_PAD_LEFT); // Increment and pad with zeros
+        } else {
+            $newId = '001'; // Start from 001 if no patients exist
+        }
+
+        return $newId;
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

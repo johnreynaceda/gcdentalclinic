@@ -59,20 +59,14 @@
                 </div>
 
                 <div class="flex items-center relative">
-                    <button onclick="toggleDropdown()" id="dropdownButton" class="flex items-center text-white">
-                        <span class="ml-2">{{ auth()->user()->name ?? '' }}</span>
-                    </button>
-
-                    <div id="dropdownMenu" class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
-                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
-                        <form method="POST" action="{{ route('logout') }}" class="w-full">
-                            @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                Log out
-                            </button>
-                        </form>
-                    </div>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                        @csrf
+                        <button type="submit" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:text-gray-500">
+                            Logout
+                        </button>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

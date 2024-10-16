@@ -27,7 +27,7 @@ class Services extends Component
 
         Appointment::create([
             'user_id' => Auth::id(),
-            'name' => Auth::user()->name,
+            'patient_id' => Auth::user()->patient_id,
             'service_id' => $serviceId,
             'appointment_date' => $this->appointmentDate,
             'appointment_time' => $this->appointmentTime,
