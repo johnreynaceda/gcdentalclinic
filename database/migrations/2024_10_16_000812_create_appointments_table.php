@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('patient_id');
+            $table->string('total_fee');
             $table->foreignId('service_id')->constrained();
             $table->date('appointment_date');
             $table->time('appointment_time');
