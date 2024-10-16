@@ -4,6 +4,7 @@ namespace App\Livewire\Patient;
 
 use App\Models\Appointment;
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,10 +13,17 @@ class Services extends Component
     public $appointmentDate;
     public $appointmentTime;
 
+    public $selected_category ;
+
     public function render()
     {
-        $services = Service::all();
-        return view('livewire.patient.services', compact('services'));
+       
+        return view('livewire.patient.services', [
+            'services' => Service::when($this->selected_category, function($record){
+                $record->where('service_category_id', $this->selected_category);
+            })->get(),
+            'categories' => ServiceCategory::all(),
+        ]);
     }
 
     public function confirm($serviceId)

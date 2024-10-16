@@ -1,4 +1,4 @@
-<div x-data="{ showModal: false }">
+{{-- <div x-data="{ showModal: false }">
 
     <button
         class="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600"
@@ -79,7 +79,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($appointments as $appointment)
+                @foreach ($appointments as $appointment)
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">{{ $appointment->user->patient_id }}</td>
                         <td class="px-6 py-4">{{ $appointment->user->first_name }}</td>
@@ -100,4 +100,8 @@
             {{ $appointments->links() }}
         </div>
     </div>
+</div> --}}
+
+<div class="bg-white p-10  rounded-2xl">
+    {{ $this->table }}
 </div>

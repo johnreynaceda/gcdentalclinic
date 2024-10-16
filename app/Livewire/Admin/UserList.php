@@ -48,7 +48,9 @@ class UserList extends Component implements HasForms, HasTable
                 ])->modalWidth('xl')
             ])
             ->columns([
-                TextColumn::make('name')->label('NAME')->searchable(),
+                TextColumn::make('id')->label('NAME')->searchable()->formatStateUsing(
+                    fn($record) => $record->name
+                ),
                 TextColumn::make('email')->label('EMAIL')->searchable(),
                 TextColumn::make('user_type')->label('USER TYPE')->searchable(),
 

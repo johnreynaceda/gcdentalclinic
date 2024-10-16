@@ -20,23 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         User::create([
-            'first_name' => 'Administrator',
-            'last_name' => 'siha',
-            'age' => 9,
-            'gender' => 'ssasa',
-            'address' => 'ssasa',
-            'contact_number' =>97976979,
+            'name' => 'Administrator',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
             'user_type' => 'admin',
         ]);
         User::create([
-            'first_name' => 'Secretary',
-            'last_name' => 'siha',
-            'age' => 9,
-            'gender' => 'ssasa',
-            'address' => 'ssasa',
-            'contact_number' =>97976979,
+            'name' => 'Secretary',
             'email' => 'secretary@gmail.com',
             'password' => bcrypt('password'),
             'user_type' => 'secretary',
@@ -45,13 +35,7 @@ class DatabaseSeeder extends Seeder
 
 
         User::create([
-            'first_name' => 'patient',
-            'last_name' => 'siha',
-            'age' => 9,
-            'patient_id' => 001,
-            'gender' => 'ssasa',
-            'address' => 'ssasa',
-            'contact_number' =>97976979,
+            'name' => 'patient',
             'email' => 'patient@gmail.com',
             'password' => bcrypt('password'),
             'user_type' => 'patient',

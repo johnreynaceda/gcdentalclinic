@@ -91,7 +91,7 @@
                                     <a href="{{ route('login') }}"
                                         class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 ">Log
                                         In</a>
-                                    <a href="#_"
+                                    <a href="{{ route('register') }}"
                                         class="inline-flex items-center w-full px-5 py-3 text-sm font-medium leading-4  bg-white md:w-auto md:rounded-full text-main hover:bg-gray-200 ">Sign
                                         Up</a>
                                 </div>

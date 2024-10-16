@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -45,16 +46,23 @@ class RegisteredUserController extends Controller
 
 
         $user = User::create([
-            'patient_id' => $patient_id,
+            'name' => $request->first_name. ' ' . $request->last_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'user_type' => 'patient',
+        ]);
+
+        $count = Patient::count();
+
+        Patient::create([
+            'patient_number' => $this->generateCode('P-', $count+1),
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'age' => $request->age,
             'gender' => $request->gender,
             'address' => $request->address,
             'contact_number' => $request->contact_number,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'user_type' => 'patient',
+            'user_id' => $user->id,
         ]);
 
         event(new Registered($user));
@@ -62,5 +70,14 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    }
+
+
+    function generateCode($prefix, $number) {
+        // Ensure the number is zero-padded to 4 digits
+        $formattedNumber = str_pad($number, 4, '0', STR_PAD_LEFT);
+
+        // Concatenate the prefix and the formatted number
+        return $prefix . $formattedNumber;
     }
 }

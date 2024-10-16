@@ -1,6 +1,5 @@
-
 <x-patient-layout>
     <div>
-      <livewire:patient.services />
+        <livewire:patient.services />
     </div>
 </x-patient-layout>
