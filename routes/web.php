@@ -59,6 +59,10 @@ Route::prefix('secretary')->middleware(['auth', 'verified'])->group(function(){
         return view('secretary.category');
     })->name('secretary.category');
 
+    Route::get('/appointments', function () {
+        return view('secretary.appointments');
+    })->name('secretary.appointments');
+
 });
 
 Route::prefix('patient')->middleware(['auth', 'verified'])->group(function(){
