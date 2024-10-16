@@ -1,6 +1,6 @@
 @section('title', 'Appointments')
 <x-admin-layout>
     <div>
-        <livewire:admin.appointments />
+        <livewire:secretary.appointments />
     </div>
 </x-admin-layout>
