@@ -81,6 +81,10 @@ Route::prefix('patient')->middleware(['auth', 'verified'])->group(function(){
         return view('patient.services');
     })->name('patient.services');
 
+    Route::get('/appointment', function () {
+        return view('patient.appointment');
+    })->name('patient.appointment');
+
 
 });
 

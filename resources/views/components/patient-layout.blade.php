@@ -97,7 +97,7 @@
                     class="relative font-medium leading-6 transition duration-150 ease-out text-white hover:text-gray-900">
                     <span class="block">Home</span>
                 </a>
-                <a href=""
+                <a href="{{route('patient.appointment')}}"
                     class="relative font-medium leading-6 transition duration-150 ease-out text-white hover:text-gray-900">
                     <span class="block">Appointment</span>
                 </a>

@@ -1,7 +1,21 @@
 <div>
+    <div>
+        @if (session()->has('success'))
+            <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session()->has('error'))
+            <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+    </div>
+
     <div class="grid grid-cols-3 gap-10 relative">
         <div class="col-span-2">
-            <!-- Service Category Filter Buttons -->
+
             <div class="mb-10 flex space-x-4 items-center">
                 <button wire:click="$set('selected_category', null)"
                     class="{{ $selected_category == null ? 'bg-main text-white' : '' }} rounded-2xl p-2 px-4 border-main hover:bg-main hover:text-white border-2">
@@ -17,7 +31,7 @@
                 @endforelse
             </div>
 
-            <!-- Service List -->
+
             <div class="containner mx-auto">
                 <div class="space-y-3">
                     @foreach ($services as $item)
@@ -35,8 +49,7 @@
             </div>
         </div>
 
-        <!-- Selected Services and Total Fee -->
-        <div>
+        <!-- Selected Services and Total Fee -->      <div>
             <div class="border rounded-3xl flex flex-col bg-white p-5 h-[40rem]">
                 <div class="flex-1 space-y-4">
                     <h3 class="text-xl font-semibold">Selected Services</h3>
@@ -61,7 +74,7 @@
         </div>
     </div>
 
-    <!-- Confirmation Modal -->
+
     <div x-data="{ open: @entangle('showModal') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-50"
         style="display: none;">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-lg mx-auto">

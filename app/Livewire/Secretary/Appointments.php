@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Livewire\Secretary;
-
 use App\Models\Appointment;
 use App\Models\Shop\Product;
 use Carbon\Carbon;
@@ -29,7 +28,7 @@ class Appointments extends Component implements HasForms, HasTable
             ->columns([
                 TextColumn::make('user.patient.patient_number')->label('PATIENT ID')->searchable(),
                 TextColumn::make('user_id')->label('FULLNAME')->formatStateUsing(
-                    fn($record) => $record->user->patient->first_name.' '.$record->user->patient->last_name
+                    fn($record) => optional(optional($record->user)->patient)->first_name . ' ' . optional(optional($record->user)->patient)->last_name
                 ),
                 TextColumn::make('appointment_date')->label('DATE & TIME')->formatStateUsing(
                     fn($record) => Carbon::parse($record->appointment_date)->format('F d, Y'). ' ' . Carbon::parse($record->appointment_time)->format('h:i A')
@@ -68,6 +67,7 @@ class Appointments extends Component implements HasForms, HasTable
                 // ...
             ]);
     }
+
 
     public $appointments;
 
