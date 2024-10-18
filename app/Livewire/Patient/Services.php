@@ -71,7 +71,6 @@ class Services extends Component
 
 
     $this->reset(['appointmentDate', 'appointmentTime', 'selectedServiceIds', 'showModal']);
-dd("sasasa");
 
 }
 

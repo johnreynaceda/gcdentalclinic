@@ -53,7 +53,8 @@
                         <span>&#8369;{{ number_format($totalFee) }}</span>
                     </div>
                 </div>
-                <button wire:click="openModal" class="w-full bg-main p-2.5 rounded-2xl text-white font-semibold text-lg hover:bg-gray-600">
+                <button wire:click="openModal"
+                    class="w-full bg-main p-2.5 rounded-2xl text-white font-semibold text-lg hover:bg-gray-600">
                     <span>Continue</span>
                 </button>
             </div>
@@ -61,19 +62,26 @@
     </div>
 
     <!-- Confirmation Modal -->
-    <div x-data="{ open: @entangle('showModal') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-50" style="display: none;">
+    <div x-data="{ open: @entangle('showModal') }" x-show="open" class="fixed inset-0 flex items-center justify-center z-50"
+        style="display: none;">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-lg mx-auto">
             <h3 class="text-lg font-semibold">Confirm Appointment</h3>
             <p>Please enter the appointment date and time:</p>
             <div class="mt-4">
                 <label for="appointmentDate" class="block text-sm font-medium text-gray-700">Appointment Date</label>
-                <input type="date" wire:model.defer="appointmentDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-                @error('appointmentDate') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                <input type="date" wire:model.defer="appointmentDate"
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+                @error('appointmentDate')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mt-4">
                 <label for="appointmentTime" class="block text-sm font-medium text-gray-700">Appointment Time</label>
-                <input type="time" wire:model.defer="appointmentTime" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
-                @error('appointmentTime') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                <input type="time" wire:model.defer="appointmentTime"
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required>
+                @error('appointmentTime')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mt-4 flex justify-end space-x-2">
                 <button @click="open = false" class="text-gray-500 hover:text-gray-700">Cancel</button>

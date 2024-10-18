@@ -1,4 +1,4 @@
-<div x-data="{ open: false, action: '', appointmentId: null }">
+{{-- <div x-data="{ open: false, action: '', appointmentId: null }">
     <div class="container mx-auto py-8">
         <table class="min-w-full bg-white rounded-lg shadow-md">
             <thead class="bg-gray-100">
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($appointments as $appointment)
+                @foreach ($appointments as $appointment)
                     <tr class="hover:bg-gray-50">
                         <td class="px-6 py-4">{{ $appointment->user->patient_id }}</td>
                         <td class="px-6 py-4">{{ $appointment->user->first_name }}</td>
@@ -70,5 +70,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div> --}}
+<div>
+    <div class="bg-white p-10 rounded-xl">
+        {{ $this->table }}
     </div>
 </div>
