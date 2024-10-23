@@ -20,8 +20,8 @@ return new class extends Migration
             $table->date('appointment_date');
             $table->time('appointment_time');
             $table->string('status')->nullable();
+            $table->boolean('is_fully_paid')->default(false);
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

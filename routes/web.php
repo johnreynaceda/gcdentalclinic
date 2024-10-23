@@ -16,7 +16,6 @@ Route::get('/dashboard', function () {
         return redirect()->route('secretary.dashboard');
     case 'patient':
         return redirect()->route('patient.dashboard');
-        break;  // Add more cases as per your user_type column in users table.
     default:
         # code...
         break;
@@ -69,7 +68,9 @@ Route::prefix('secretary')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/schedule', function () {
         return view('secretary.schedule');
     })->name('secretary.schedule');
-
+    Route::get('/billing', function () {
+        return view('secretary.billing');
+    })->name('secretary.billing');
 });
 
 Route::prefix('patient')->middleware(['auth', 'verified'])->group(function(){

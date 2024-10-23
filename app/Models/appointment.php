@@ -28,5 +28,9 @@ class appointment extends Model
         return $this->belongsToMany(Service::class);
     }
 
+    public function appointmentPayments(){
+        return $this->hasMany(AppointmentPayment::class);
+    }
+
 
 }

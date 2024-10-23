@@ -73,6 +73,8 @@ class Services extends Component
     $this->reset(['appointmentDate', 'appointmentTime', 'selectedServiceIds', 'showModal']);
 
     session()->flash('success', 'Appointment successfully submitted!');
+    
+    return redirect()->route('patient.appointment');
 
 }
 
