@@ -17,15 +17,22 @@
         <div class="flex flex-col">
             <div class="overflow-x-auto">
                 <div class="inline-block min-w-full">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full divide-y border divide-neutral-200" x-ref="printContainer">
+                    <div class="overflow-hidden" x-ref="printContainer">
+                        <div class="py-2">
+                            <div class="flex space-x-2 items-center">
+                                <img src="{{ asset('images/gclogo.png') }}" class="h-12" alt="">
+                                <span class="text-xl font-bold text-gray-600">GC Dental</span>
+                            </div>
+                            <h1 class="mt-5">Itemized Bill</h1>
+                        </div>
+                        <table class="min-w-full divide-y border border-gray-500 divide-gray-500">
                             <thead>
-                                <tr class="text-neutral-500">
+                                <tr class="text-gray-700">
                                     <th class="px-5 py-3 text-xs font-medium text-left uppercase">PAID AMOUNT</th>
                                     <th class="px-5 py-3 text-xs font-medium text-left uppercase">CREATED AT</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-neutral-200">
+                            <tbody class="divide-y divide-gray-500">
                                 @forelse ($getRecord()->appointmentPayments as $item)
                                     <tr class="text-neutral-800">
                                         <td class="px-5 py-2 text-sm font-medium whitespace-nowrap">
@@ -38,6 +45,37 @@
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    <div class="hidden">
+                        <div class="overflow-hidden" x-ref="printContainer">
+                            <div class="py-2">
+                                <div class="flex space-x-2 items-center">
+                                    <img src="{{ asset('images/gclogo.png') }}" class="h-12" alt="">
+                                    <span class="text-xl font-bold text-gray-600">GC Dental</span>
+                                </div>
+                                <h1 class="mt-5">Itemized Bill</h1>
+                            </div>
+                            <table class="min-w-full divide-y border border-gray-500 divide-gray-500">
+                                <thead>
+                                    <tr class="text-gray-700">
+                                        <th class="px-5 py-3 text-xs font-medium text-left uppercase">PAID AMOUNT</th>
+                                        <th class="px-5 py-3 text-xs font-medium text-left uppercase">CREATED AT</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-500">
+                                    @forelse ($getRecord()->appointmentPayments as $item)
+                                        <tr class="text-neutral-800">
+                                            <td class="px-5 py-2 text-sm font-medium whitespace-nowrap">
+                                                &#8369;{{ number_format($item->paid_amount, 2) }}
+                                            </td>
+                                            <td class="px-5 py-2 text-sm whitespace-nowrap">
+                                                {{ \Carbon\Carbon::parse($item->created_at)->format('F d, Y') }}</td>
+                                        </tr>
+                                    @empty
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
