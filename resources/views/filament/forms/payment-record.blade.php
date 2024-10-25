@@ -51,7 +51,7 @@
                             <div class="py-2">
                                 <div class="flex space-x-2 items-center">
                                     <img src="{{ asset('images/gclogo.png') }}" class="h-12" alt="">
-                                    <span class="text-xl font-bold text-gray-600">GC Dental</span>
+                                    <span class="text-xl font-bold text-gray-600">GC Dentals</span>
                                 </div>
                                 <h1 class="mt-5">Itemized Bill</h1>
                             </div>
